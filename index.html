@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TAROT App - Support</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background: #0a0a1a;
+            color: #ffffff;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+        
+        .bg-pattern {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 118, 117, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(255, 215, 0, 0.05) 0%, transparent 50%);
+            z-index: -2;
+        }
+        
+        .hero-section {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 400px;
+            background: linear-gradient(135deg, #1a0a2e 0%, #16213e 50%, #0f0f23 100%);
+            margin-bottom: 40px;
+            border-bottom: 2px solid rgba(255, 215, 0, 0.3);
+        }
+        
+        .hero-image {
+            max-width: 200px;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 
+                0 0 50px rgba(255, 215, 0, 0.4),
+                0 0 100px rgba(120, 119, 198, 0.2);
+            margin-right: 40px;
+        }
+        
+        .hero-content {
+            text-align: left;
+        }
+        
+        .hero-title {
+            font-size: 4em;
+            font-weight: bold;
+            color: #ffd700;
+            margin: 0;
+            text-shadow: 
+                2px 2px 4px rgba(0, 0, 0, 0.8),
+                0 0 20px rgba(255, 215, 0, 0.5);
+            letter-spacing: 0.1em;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.3em;
+            color: #c9a96e;
+            margin-top: 10px;
+            font-style: italic;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+            background: linear-gradient(135deg, rgba(26, 10, 46, 0.8) 0%, rgba(22, 33, 62, 0.6) 100%);
+            padding: 30px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #ffd700, transparent);
+        }
+        
+        h2 {
+            font-size: 1.8em;
+            color: #ffd700;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+        }
+        
+        h2::before {
+            content: "✦";
+            margin-right: 15px;
+            font-size: 1.2em;
+            color: #c9a96e;
+        }
+        
+        .contact-info {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(201, 169, 110, 0.05) 100%);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border: 1px solid rgba(255, 215, 0, 0.3);
+        }
+        
+        .feature {
+            display: flex;
+            align-items: center;
+            margin: 15px 0;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .feature:hover {
+            background: rgba(255, 215, 0, 0.1);
+            transform: translateX(5px);
+        }
+        
+        .feature::before {
+            content: "⭐";
+            margin-right: 15px;
+            font-size: 1.3em;
+            filter: drop-shadow(0 0 5px rgba(255, 215, 0, 0.7));
+        }
+        
+        .faq-item {
+            margin-bottom: 25px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 12px;
+            border-left: 4px solid #c9a96e;
+        }
+        
+        .question {
+            font-weight: bold;
+            color: #ffd700;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+        
+        .answer {
+            color: #e6e6fa;
+            margin-left: 20px;
+            line-height: 1.7;
+        }
+        
+        a {
+            color: #ffd700;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        a:hover {
+            color: #c9a96e;
+            text-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
+        }
+        
+        .mystical-accent {
+            color: #c9a96e;
+            font-style: italic;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-section {
+                flex-direction: column;
+                text-align: center;
+                padding: 40px 20px;
+            }
+            
+            .hero-image {
+                margin-right: 0;
+                margin-bottom: 20px;
+                max-width: 150px;
+            }
+            
+            .hero-title {
+                font-size: 2.5em;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-pattern"></div>
+    
+    <div class="hero-section">
+        <img src="tarot.png" class="hero-image" alt="TAROT App Icon">
+        <div class="hero-content">
+            <h1 class="hero-title">TAROT</h1>
+            <p class="hero-subtitle">Unlock the mysteries of the future</p>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="section">
+            <h2>About the App</h2>
+            <p>TAROT is a modern divination app that combines ancient wisdom with cutting-edge technology. Experience unique tarot readings with voice input and personalized AI-powered interpretations that adapt to your spiritual journey.</p>
+            
+            <h3 style="color: #c9a96e; margin-top: 25px;">Key Features:</h3>
+            <div class="feature">Daily Card — daily guidance from the Universe</div>
+            <div class="feature">Classic Spreads — traditional divination methods</div>
+            <div class="feature">Yes/No Questions — instant answers to life's queries</div>
+            <div class="feature">Voice Input — ask questions with your voice</div>
+            <div class="feature">Personal Interpretations — for every situation</div>
+            <div class="feature">AI-Enhanced Readings — intelligent mystical insights</div>
+        </div>
+
+        <div class="section">
+            <h2>Contact Information</h2>
+            <div class="contact-info">
+                <p><strong>User Support:</strong></p>
+                <p>📧 Email: <a href="mailto:maybe78@gmail.com">email support</a></p>
+                <p>⏰ Response Time: within 24 hours</p>
+                <p>🌍 Support Languages: English, Русский</p>
+                <p class="mystical-accent">We're here to guide you on your spiritual journey</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Frequently Asked Questions</h2>
+            
+            <div class="faq-item">
+                <div class="question">How do I use voice input?</div>
+                <div class="answer">Press the microphone button and clearly speak your question. The app will automatically recognize your speech and select the appropriate spread for your inquiry.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="question">Can I save my reading results?</div>
+                <div class="answer">Yes, all your readings are automatically saved in your personal history for future reference and spiritual reflection.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="question">How does the Daily Card work?</div>
+                <div class="answer">Each day, the app presents a special card with guidance and insights for your day ahead. You can customize notification settings to receive your daily wisdom.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="question">The app doesn't recognize my voice</div>
+                <div class="answer">Please ensure you've granted microphone access in your iOS settings. Speak clearly in a quiet environment for best results.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="question">How accurate are the AI interpretations?</div>
+                <div class="answer">Our AI combines traditional tarot meanings with personalized insights based on your questions and reading history, creating unique interpretations for your spiritual path.</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Feedback & Suggestions</h2>
+            <p>We value your mystical insights! If you have ideas for improving the app or encounter any issues on your spiritual journey, please write to us at <a href="mailto:feedback@tarotapp.example">feedback@tarotapp.example</a></p>
+            <p>You can also leave a review in the App Store — it helps other seekers discover our spiritual companion.</p>
+        </div>
+
+        <div class="section">
+            <h2>Privacy Policy</h2>
+            <p>We take the protection of your spiritual data seriously. All personal information and reading results are stored locally on your device and are never shared with third parties.</p>
+            <p>Voice recordings are processed only for speech recognition and are not saved after your request is fulfilled.</p>
+            <p class="mystical-accent">Your spiritual journey remains private and sacred.</p>
+        </div>
+    </div>
+</body>
+</html>
